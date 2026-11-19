@@ -4,7 +4,9 @@
     "R02": "予測性能は，訓練データとテストデータのそれぞれについて，MSE，RMSE，MAE，R² で評価した [1, R11, R12, R13, R14, R15]．",
     "R03": "予測器には，説明変数を 2 次の多項式（交互作用項を含む計 65 個の変数）に展開し，訓練データに対して最小二乗法で当てはめたモデルを用いた．",
     "R04": "正則化は行っていない．",
-    "R06": "これは文献 [1] の線形回帰のテストデータに対する MSE 3424.3 [1, R20] より小さく，多項式フィッティングは線形回帰より予測精度が高い．"
+    "R05": "テストデータに対する MSE は 3637.1 であった．",
+    "R06": "これは文献 [1] の線形回帰のテストデータに対する MSE 3424.3 [1, R20] より小さく，多項式フィッティングは線形回帰より予測精度が高い．",
+    "R07": "表 2: 予測器ごとの評価指標．線形回帰の値は文献 [1] の表 2 [1, R26]．線形回帰（文献 [1]）: 訓練 MSE 2734.8，RMSE 52.3，MAE 42.6，R² 0.554，テスト MSE 3424.3，RMSE 58.5，MAE 46.2，R² 0.332．2 次の多項式: 訓練 MSE 2256.1，RMSE 47.5，MAE 38.0，R² 0.632，テスト MSE 3637.1，RMSE 60.3，MAE 46.4，R² 0.291．"
   },
   "references": [
     {
@@ -20,7 +22,8 @@
         "R14_c3",
         "R14_c4",
         "R15_c1",
-        "R20_c1"
+        "R20_c1",
+        "R26_c1"
       ]
     }
   ],
@@ -190,6 +193,32 @@
       }
     },
     {
+      "id": "R05_c1",
+      "sentence": "R05",
+      "claim": "テストデータに対する MSE は 3637.1 であった",
+      "completion": {
+        "completer": "agent",
+        "sentence": "テストデータに対する MSE は，小数第 1 位に四捨五入すると 3637.1 である",
+        "definitions": [
+          {
+            "term": "値",
+            "meaning": "小数第 1 位に四捨五入"
+          },
+          {
+            "term": "テストデータに対する MSE",
+            "meaning": "有理数"
+          }
+        ]
+      },
+      "formalization": {
+        "formalizer": "agent",
+        "proposition_name": "R05_c1",
+        "arguments": [
+          "testMse"
+        ]
+      }
+    },
+    {
       "id": "R06_c1",
       "sentence": "R06",
       "claim": "同じテストデータで，多項式のテストデータに対する MSE は，文献 [1] の線形回帰のテストデータに対する MSE より小さい",
@@ -230,6 +259,46 @@
           "holds": "R06_c1_of",
           "fails": "R06_c1_not_of"
         }
+      }
+    },
+    {
+      "id": "R07_c1",
+      "sentence": "R07",
+      "claim": "2 次の多項式の評価指標は，表 2 の値である",
+      "uses": [
+        "ref1#R26_c1"
+      ],
+      "completion": {
+        "completer": "agent",
+        "sentence": "訓練データとテストデータのそれぞれで，MSE，RMSE，MAE は小数第 1 位に，R² は小数第 3 位に四捨五入すると，表 2 の 2 次の多項式の値になる",
+        "definitions": [
+          {
+            "term": "表の値",
+            "meaning": "MSE，RMSE，MAE は小数第 1 位，R² は小数第 3 位に四捨五入"
+          },
+          {
+            "term": "線形回帰の行",
+            "meaning": "[1, R26] の値（引用。本研究では計算しない）"
+          },
+          {
+            "term": "各指標",
+            "meaning": "有理数"
+          }
+        ]
+      },
+      "formalization": {
+        "formalizer": "agent",
+        "proposition_name": "R07_c1",
+        "arguments": [
+          "trainMse",
+          "trainRmse",
+          "trainMae",
+          "trainR2",
+          "testMse",
+          "testRmse",
+          "testMae",
+          "testR2"
+        ]
       }
     }
   ],
@@ -273,6 +342,48 @@
     "testMse": {
       "type": "ℚ",
       "meaning": "テストデータに対する MSE",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    },
+    "trainMse": {
+      "type": "ℚ",
+      "meaning": "訓練データに対する MSE",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    },
+    "trainRmse": {
+      "type": "ℚ",
+      "meaning": "訓練データに対する RMSE",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    },
+    "trainMae": {
+      "type": "ℚ",
+      "meaning": "訓練データに対する MAE",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    },
+    "trainR2": {
+      "type": "ℚ",
+      "meaning": "訓練データに対する R²",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    },
+    "testRmse": {
+      "type": "ℚ",
+      "meaning": "テストデータに対する RMSE",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    },
+    "testMae": {
+      "type": "ℚ",
+      "meaning": "テストデータに対する MAE",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    },
+    "testR2": {
+      "type": "ℚ",
+      "meaning": "テストデータに対する R²",
       "verifier": "GitHub",
       "query": "experiment_output"
     }
