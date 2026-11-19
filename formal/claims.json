@@ -1,0 +1,294 @@
+{
+  "sentences": {
+    "R01": "データセット，前処理，訓練データとテストデータへの分割は，文献 [1] と同じとし，モデルに入れた訓練データとテストデータ（説明変数と目的変数）が文献 [1] のものと一致することを SHA-256 で確かめた [1, R06]．",
+    "R02": "予測性能は，訓練データとテストデータのそれぞれについて，MSE，RMSE，MAE，R² で評価した [1, R11, R12, R13, R14, R15]．",
+    "R03": "予測器には，説明変数を 2 次の多項式（交互作用項を含む計 65 個の変数）に展開し，訓練データに対して最小二乗法で当てはめたモデルを用いた．",
+    "R04": "正則化は行っていない．",
+    "R06": "これは文献 [1] の線形回帰のテストデータに対する MSE 3424.3 [1, R20] より小さく，多項式フィッティングは線形回帰より予測精度が高い．"
+  },
+  "references": [
+    {
+      "id": "ref1",
+      "commit": "163eaf98735b391c5df51e08c9b52f6fb93d1bec",
+      "repository": "https://github.com/auto-res2/diabetes-linear-regression-5",
+      "claims": [
+        "R06_c4",
+        "R06_c5",
+        "R11_c1",
+        "R12_c1",
+        "R13_c1",
+        "R14_c3",
+        "R14_c4",
+        "R15_c1",
+        "R20_c1"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "R01_c1",
+      "sentence": "R01",
+      "claim": "モデルに入れた訓練データは，文献 [1] のものと一致する",
+      "uses": [
+        "ref1#R06_c4"
+      ],
+      "completion": {
+        "completer": "agent",
+        "sentence": "モデルに入れた訓練データ（説明変数と目的変数）の SHA-256 は，文献 [1] の訓練データの SHA-256 と一致する",
+        "definitions": [
+          {
+            "term": "文献 [1] の訓練データの SHA-256",
+            "meaning": "[1, R06] の c4 が述べる値"
+          },
+          {
+            "term": "訓練データの SHA-256",
+            "meaning": "文字列"
+          }
+        ]
+      },
+      "formalization": {
+        "formalizer": "agent",
+        "proposition_name": "R01_c1",
+        "arguments": [
+          "trainDataSha256"
+        ],
+        "proof": {
+          "holds": "R01_c1_of_eq",
+          "fails": "R01_c1_not_of_ne"
+        }
+      }
+    },
+    {
+      "id": "R01_c2",
+      "sentence": "R01",
+      "claim": "テストデータは，文献 [1] のものと一致する",
+      "uses": [
+        "ref1#R06_c5"
+      ],
+      "completion": {
+        "completer": "agent",
+        "sentence": "テストデータ（説明変数と目的変数）の SHA-256 は，文献 [1] のテストデータの SHA-256 と一致する",
+        "definitions": [
+          {
+            "term": "文献 [1] のテストデータの SHA-256",
+            "meaning": "[1, R06] の c5 が述べる値"
+          },
+          {
+            "term": "テストデータの SHA-256",
+            "meaning": "文字列"
+          }
+        ]
+      },
+      "formalization": {
+        "formalizer": "agent",
+        "proposition_name": "R01_c2",
+        "arguments": [
+          "testDataSha256"
+        ],
+        "proof": {
+          "holds": "R01_c2_of_eq",
+          "fails": "R01_c2_not_of_ne"
+        }
+      }
+    },
+    {
+      "id": "R02_c1",
+      "sentence": "R02",
+      "claim": "予測性能は，訓練データとテストデータのそれぞれについて，MSE，RMSE，MAE，R² で評価した",
+      "uses": [
+        "ref1#R11_c1",
+        "ref1#R12_c1",
+        "ref1#R13_c1",
+        "ref1#R14_c3",
+        "ref1#R14_c4",
+        "ref1#R15_c1"
+      ],
+      "completion": {
+        "completer": "agent",
+        "sentence": "出力に，訓練データとテストデータのそれぞれについて，MSE，RMSE，MAE，R² の値がある",
+        "definitions": [
+          {
+            "term": "MSE，R²",
+            "meaning": "[1, R12] の定義（ȳ は [1, R13]）"
+          },
+          {
+            "term": "RMSE，MAE",
+            "meaning": "[1, R14] の定義"
+          },
+          {
+            "term": "出力にある値の名前",
+            "meaning": "文字列のリスト"
+          }
+        ]
+      },
+      "formalization": {
+        "formalizer": "agent",
+        "proposition_name": "R02_c1",
+        "arguments": [
+          "outputKeys"
+        ]
+      }
+    },
+    {
+      "id": "R03_c1",
+      "sentence": "R03",
+      "claim": "説明変数を 2 次の多項式（交互作用項を含む計 65 個の変数）に展開した",
+      "completion": {
+        "completer": "agent",
+        "sentence": "多項式の次数は 2 で，展開後の変数は 65 個である",
+        "definitions": [
+          {
+            "term": "次数，展開後の変数の数",
+            "meaning": "自然数"
+          }
+        ]
+      },
+      "formalization": {
+        "formalizer": "agent",
+        "proposition_name": "R03_c1",
+        "arguments": [
+          "polyDegree",
+          "nPolyFeatures"
+        ]
+      }
+    },
+    {
+      "id": "R03_c2",
+      "sentence": "R03",
+      "claim": "訓練データに対して最小二乗法で当てはめた",
+      "completion": {
+        "completer": "agent",
+        "sentence": "当てはめの手順は，scikit-learn の PolynomialFeatures の後に LinearRegression である",
+        "definitions": [
+          {
+            "term": "最小二乗法で当てはめた",
+            "meaning": "多項式に展開した後，LinearRegression で当てはめた"
+          },
+          {
+            "term": "手順の名前",
+            "meaning": "文字列のリスト"
+          }
+        ]
+      },
+      "formalization": {
+        "formalizer": "agent",
+        "proposition_name": "R03_c2",
+        "arguments": [
+          "fitSteps"
+        ]
+      }
+    },
+    {
+      "id": "R04_c1",
+      "sentence": "R04",
+      "claim": "正則化の係数は 0 である",
+      "unverifiable": "コードの振る舞いを判定する検証器が無い",
+      "formalization": {
+        "formalizer": "agent",
+        "proposition_name": "R04_c1",
+        "arguments": []
+      }
+    },
+    {
+      "id": "R06_c1",
+      "sentence": "R06",
+      "claim": "同じテストデータで，多項式のテストデータに対する MSE は，文献 [1] の線形回帰のテストデータに対する MSE より小さい",
+      "uses": [
+        "ref1#R06_c5",
+        "ref1#R20_c1"
+      ],
+      "completion": {
+        "completer": "agent",
+        "sentence": "テストデータが文献 [1] のものと一致し，かつ，テストデータに対する MSE は文献 [1] の線形回帰のテストデータに対する MSE より小さい",
+        "definitions": [
+          {
+            "term": "文献 [1] の線形回帰のテストデータに対する MSE",
+            "meaning": "[1, R20] の c1 により，小数第 1 位に四捨五入すると 3424.3 になる値"
+          },
+          {
+            "term": "比べてよい条件",
+            "meaning": "テストデータが文献 [1] のものと一致する（[1, R06] の c5）"
+          },
+          {
+            "term": "予測精度が高い",
+            "meaning": "テストデータに対する MSE が小さい"
+          },
+          {
+            "term": "テストデータの SHA-256，テストデータに対する MSE",
+            "meaning": "文字列，有理数"
+          }
+        ]
+      },
+      "formalization": {
+        "formalizer": "agent",
+        "proposition_name": "R06_c1",
+        "arguments": [
+          "testDataSha256",
+          "testMse"
+        ],
+        "proof": {
+          "holds": "R06_c1_of",
+          "fails": "R06_c1_not_of"
+        }
+      }
+    }
+  ],
+  "variables": {
+    "trainDataSha256": {
+      "type": "String",
+      "meaning": "モデルに入れた訓練データ（説明変数と目的変数）の SHA-256",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    },
+    "testDataSha256": {
+      "type": "String",
+      "meaning": "テストデータ（説明変数と目的変数）の SHA-256",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    },
+    "outputKeys": {
+      "type": "List String",
+      "meaning": "出力にある値の名前",
+      "verifier": "GitHub",
+      "query": "experiment_output_keys"
+    },
+    "polyDegree": {
+      "type": "ℕ",
+      "meaning": "多項式の次数",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    },
+    "nPolyFeatures": {
+      "type": "ℕ",
+      "meaning": "多項式に展開した後の変数の数",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    },
+    "fitSteps": {
+      "type": "List String",
+      "meaning": "当てはめの手順の名前",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    },
+    "testMse": {
+      "type": "ℚ",
+      "meaning": "テストデータに対する MSE",
+      "verifier": "GitHub",
+      "query": "experiment_output"
+    }
+  },
+  "axioms": [
+    {
+      "name": "propext",
+      "reason": "Lean 本体の公理。互いに同値な 2 つの命題は等しい"
+    },
+    {
+      "name": "Quot.sound",
+      "reason": "Lean 本体の公理。ある関係で同じとみなした 2 つのものは、その関係で割った型では等しい"
+    },
+    {
+      "name": "Classical.choice",
+      "reason": "Lean 本体の公理。空でない型から元を 1 つ取り出せる"
+    }
+  ]
+}
