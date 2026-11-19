@@ -1,0 +1,169 @@
+{
+  "repository": "auto-res2/diabetes-polynomial-regression-2",
+  "mode": "full",
+  "claims": {
+    "R01_c1": {
+      "status": "verified",
+      "verdict": "真",
+      "axioms": [
+        "Ref1.R06_c4_cited"
+      ]
+    },
+    "R01_c2": {
+      "status": "verified",
+      "verdict": "真",
+      "axioms": [
+        "Ref1.R06_c5_cited"
+      ]
+    },
+    "R02_c1": {
+      "status": "verified",
+      "verdict": "真",
+      "axioms": [
+        "propext"
+      ]
+    },
+    "R03_c1": {
+      "status": "verified",
+      "verdict": "真",
+      "axioms": []
+    },
+    "R03_c2": {
+      "status": "verified",
+      "verdict": "真",
+      "axioms": []
+    },
+    "R04_c1": {
+      "status": "unverifiable",
+      "reason": "コードの振る舞いを判定する検証器が無い",
+      "axiom": "R04_c1_axiom"
+    },
+    "R05_c1": {
+      "status": "verified",
+      "verdict": "真",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "R06_c1": {
+      "status": "verified",
+      "verdict": "偽",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "Ref1.R06_c5_cited",
+        "Ref1.R20_c1_cited",
+        "propext"
+      ]
+    },
+    "R07_c1": {
+      "status": "verified",
+      "verdict": "真",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "citations": [
+    {
+      "claim": "ref1#R06_c4",
+      "commit": "163eaf98735b391c5df51e08c9b52f6fb93d1bec",
+      "status": "verified",
+      "verdict": "真",
+      "receives": "P",
+      "axiom": "Ref1.R06_c4_cited"
+    },
+    {
+      "claim": "ref1#R06_c5",
+      "commit": "163eaf98735b391c5df51e08c9b52f6fb93d1bec",
+      "status": "verified",
+      "verdict": "真",
+      "receives": "P",
+      "axiom": "Ref1.R06_c5_cited"
+    },
+    {
+      "claim": "ref1#R11_c1",
+      "commit": "163eaf98735b391c5df51e08c9b52f6fb93d1bec",
+      "status": "verified",
+      "verdict": "真",
+      "receives": "P",
+      "axiom": "Ref1.R11_c1_cited"
+    },
+    {
+      "claim": "ref1#R12_c1",
+      "commit": "163eaf98735b391c5df51e08c9b52f6fb93d1bec",
+      "status": "verified",
+      "verdict": "真",
+      "receives": "P",
+      "axiom": "Ref1.R12_c1_cited"
+    },
+    {
+      "claim": "ref1#R13_c1",
+      "commit": "163eaf98735b391c5df51e08c9b52f6fb93d1bec",
+      "status": "verified",
+      "verdict": "真",
+      "receives": "P",
+      "axiom": "Ref1.R13_c1_cited"
+    },
+    {
+      "claim": "ref1#R14_c3",
+      "commit": "163eaf98735b391c5df51e08c9b52f6fb93d1bec",
+      "status": "verified",
+      "verdict": "真",
+      "receives": "P",
+      "axiom": "Ref1.R14_c3_cited"
+    },
+    {
+      "claim": "ref1#R14_c4",
+      "commit": "163eaf98735b391c5df51e08c9b52f6fb93d1bec",
+      "status": "verified",
+      "verdict": "真",
+      "receives": "P",
+      "axiom": "Ref1.R14_c4_cited"
+    },
+    {
+      "claim": "ref1#R15_c1",
+      "commit": "163eaf98735b391c5df51e08c9b52f6fb93d1bec",
+      "status": "verified",
+      "verdict": "真",
+      "receives": "P",
+      "axiom": "Ref1.R15_c1_cited"
+    },
+    {
+      "claim": "ref1#R20_c1",
+      "commit": "163eaf98735b391c5df51e08c9b52f6fb93d1bec",
+      "status": "verified",
+      "verdict": "真",
+      "receives": "P",
+      "axiom": "Ref1.R20_c1_cited"
+    },
+    {
+      "claim": "ref1#R26_c1",
+      "commit": "163eaf98735b391c5df51e08c9b52f6fb93d1bec",
+      "status": "verified",
+      "verdict": "真",
+      "receives": "P",
+      "axiom": "Ref1.R26_c1_cited"
+    }
+  ],
+  "values": {
+    "trainDataSha256": "\"7968ccfdb6b347591a4a86e80dc98088c8d74ccc118ef1c80694e02748c425e2\"",
+    "testDataSha256": "\"cb0d6b45a5531af0e7818c582c9f92b56ad466c787539acfbeef143da4349091\"",
+    "outputKeys": "[\"nSamples\", \"nFeatures\", \"featureColumns\", \"targetColumn\", \"splitSeed\", \"nTrain\", \"nTest\", \"trainIndex\", \"testIndex\", \"loadedXSha256\", \"modelInputXSha256\", \"trainDataSha256\", \"testDataSha256\", \"usedFeatureCount\", \"fitSteps\", \"polyDegree\", \"nPolyFeatures\", \"targetMean\", \"targetStd\", \"trainMse\", \"trainRmse\", \"trainMae\", \"trainR2\", \"testMse\", \"testRmse\", \"testMae\", \"testR2\", \"meanPredictorTestRmse\", \"envCpuModel\", \"envCpuLogicalCores\", \"envMemoryGib\", \"envPython\", \"envNumpy\", \"envScikitLearn\"]",
+    "polyDegree": "2",
+    "nPolyFeatures": "65",
+    "fitSteps": "[\"sklearn.preprocessing.PolynomialFeatures\", \"sklearn.linear_model.LinearRegression\"]",
+    "testMse": "((90928666845181 : ℚ) / 25000000000)",
+    "trainMse": "((11280284839036233 : ℚ) / 5000000000000)",
+    "trainRmse": "((4749796803871979 : ℚ) / 100000000000000)",
+    "trainMae": "((3800780470289343 : ℚ) / 100000000000000)",
+    "trainR2": "((49375506710467 : ℚ) / 78125000000000)",
+    "testRmse": "((12061752233912351 : ℚ) / 200000000000000)",
+    "testMae": "((9281292593314383 : ℚ) / 200000000000000)",
+    "testR2": "((1816987092270219 : ℚ) / 6250000000000000)"
+  }
+}
